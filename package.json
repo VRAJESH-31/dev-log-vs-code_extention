@@ -4,17 +4,20 @@
   "description": "Automated Developer Log",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.108.1"
+    "vscode": "^1.104.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": ["onStartupFinished"],
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "auto-devlog.helloWorld",
-      "title": "Hello World"
+      "command": "auto-devlog.showStats",
+      "title": "DevLog: Show Session Stats"
+    }, {
+      "command": "auto-devlog.stopSession",
+      "title": "DevLog: Stop Session & Generate Log"
     }]
   },
   "scripts": {
@@ -23,7 +26,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.108.1",
+    "@types/vscode": "^1.104.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "eslint": "^9.39.2",
