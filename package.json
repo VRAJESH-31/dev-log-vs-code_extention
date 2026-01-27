@@ -9,16 +9,21 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onStartupFinished"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "auto-devlog.showStats",
-      "title": "DevLog: Show Session Stats"
-    }, {
-      "command": "auto-devlog.stopSession",
-      "title": "DevLog: Stop Session & Generate Log"
-    }]
+    "commands": [
+      {
+        "command": "auto-devlog.showStats",
+        "title": "DevLog: Show Session Stats"
+      },
+      {
+        "command": "auto-devlog.stopSession",
+        "title": "DevLog: Stop Session & Generate Log"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -26,11 +31,14 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.104.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "eslint": "^9.39.2",
+    "@types/vscode": "^1.104.0",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
   }
 }
