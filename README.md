@@ -1,65 +1,316 @@
-# auto-devlog README
+<p align="center">
+  <img src="https://img.icons8.com/fluency/96/code.png" alt="Auto-DevLog Logo" width="96" height="96"/>
+</p>
 
-This is the README for your extension "auto-devlog". After writing up a brief description, we recommend including the following sections.
+<h1 align="center">🚀 Auto-DevLog</h1>
 
-## Features
+<p align="center">
+  <strong>The AI-Powered Developer Journal That Writes Itself</strong>
+</p>
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+<p align="center">
+  <img src="https://img.shields.io/badge/VS%20Code-Extension-blue?logo=visualstudiocode" alt="VS Code Extension"/>
+  <img src="https://img.shields.io/badge/AI-Gemini%202.5%20Flash-orange?logo=google" alt="Gemini AI"/>
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"/>
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Status"/>
+</p>
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+<p align="center">
+  <a href="#-why-auto-devlog">Why?</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-installation">Install</a> •
+  <a href="#-how-it-works">How It Works</a> •
+  <a href="#%EF%B8%8F-configuration">Config</a> •
+  <a href="#-architecture">Architecture</a>
+</p>
 
 ---
 
-## Working with Markdown
+## 😫 The Problem Every Developer Faces
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+**"What did I even do yesterday?"**
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
+Sound familiar? You've spent 8 hours coding, fixed bugs, refactored components, added features... but when it's time to:
 
-## For more information
+- Write your **standup update**
+- Fill in your **timesheet**
+- Create a **pull request description**
+- Update the **changelog**
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+...you're staring at a blank screen, trying to remember what you actually accomplished.
 
-**Enjoy!**
+### The Status Quo is Broken
+
+| Current Solutions | Why They Fail |
+|------------------|---------------|
+| **Manual logging** | Nobody has time for this |
+| **Git commits** | Too granular, no context |
+| **Time trackers** | Track time, not work |
+| **Note-taking apps** | Requires discipline |
+| **Memory** | 🤣 Good luck |
+
+---
+
+## 💡 The Solution: Auto-DevLog
+
+**Auto-DevLog is a VS Code extension that silently watches your coding session and automatically generates intelligent, human-readable development logs using AI.**
+
+You code. It documents. That's it.
+
+```
+👁️ DevLog Watching     →     ✅ Saved: App.jsx     →     📝 DEVLOG.md Updated
+```
+
+### What Makes It Different
+
+| Feature | Auto-DevLog | Others |
+|---------|-------------|--------|
+| **Zero effort** | ✅ Fully automatic | ❌ Manual input required |
+| **AI-powered** | ✅ Gemini 2.5 Flash | ❌ No intelligence |
+| **Context-aware** | ✅ Understands your code | ❌ Generic timestamps |
+| **Crash-proof** | ✅ Local backup system | ❌ Data loss on crash |
+| **Privacy-first** | ✅ Runs locally | ❌ Cloud dependency |
+
+---
+
+## ✨ Features
+
+### 🕵️ Silent Observer Mode
+- **No commands to run** - Activates automatically when VS Code opens
+- **No buttons to click** - Works in the background while you code
+- **No interruptions** - Never asks for input or confirmation
+
+### 🧠 Smart AI Summarization
+- Powered by **Google Gemini 2.5 Flash**
+- Understands code context and purpose
+- Anti-spam filtering for large UI blocks
+- Generates **3-8 concise bullet points**
+
+### ⚡ Real-Time Tracking
+- **3-second debounce** - Captures after you stop typing
+- **15-minute inactivity detection** - Auto-commits when you step away
+- **Smart truncation** - Handles large files efficiently
+
+### 🛡️ Crash Protection
+- **Local JSON backup** after every capture
+- **Session restoration** on next startup
+- **Graceful shutdown** saves before VS Code closes
+- **Never lose your work** - Even if VS Code crashes
+
+### 📊 Beautiful Output
+```markdown
+## 📝 Log: Tuesday, January 28, 2026 at 2:25 AM
+
+**Session Stats:** 12 captures across 5 files
+
+- Implemented user authentication flow with JWT token validation
+- Refactored Dashboard component for better performance
+- Fixed critical bug in payment processing module
+- Added error handling for API timeout scenarios
+
+*Generated by Auto-DevLog*
+```
+
+---
+
+## 📦 Installation
+
+### From Source (Development)
+
+```bash
+# Clone the repository
+git clone https://github.com/VRAJESH-31/dev-log-vs-code_extention.git
+
+# Navigate to directory
+cd dev-log-vs-code_extention
+
+# Install dependencies
+npm install
+
+# Create your .env file
+cp .env.example .env
+
+# Add your Gemini API key to .env
+# Get key from: https://aistudio.google.com/app/apikey
+```
+
+### Run the Extension
+
+1. Open the project in VS Code
+2. Press **F5** to launch Extension Development Host
+3. Start coding in the new window
+4. Watch the magic happen! 🎉
+
+---
+
+## 🔧 How It Works
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     AUTO-DEVLOG WORKFLOW                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   1️⃣ DETECT          2️⃣ CAPTURE         3️⃣ SUMMARIZE           │
+│   ─────────          ─────────          ───────────            │
+│   Listen for    →    Debounce 3s   →    Call Gemini AI         │
+│   file changes       Save backup        Generate summary       │
+│                                                                 │
+│   4️⃣ WRITE           5️⃣ RESET           6️⃣ REPEAT             │
+│   ─────────          ─────────          ─────────              │
+│   Append to     →    Clear session  →   Continue               │
+│   DEVLOG.md          Delete backup      watching               │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Trigger Conditions
+
+| Trigger | When | Action |
+|---------|------|--------|
+| **Inactivity** | 15 minutes idle | Auto-generates log |
+| **Manual** | Command: `DevLog: Stop Session` | Immediate generation |
+| **Shutdown** | VS Code closes | Saves before exit |
+
+---
+
+## ⚙️ Configuration
+
+All settings are managed via the `.env` file:
+
+```env
+# 🔑 API Configuration
+GEMINI_API_KEY=your_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
+
+# ⏱️ Timing (milliseconds)
+DEBOUNCE_DELAY=3000          # Wait after typing stops
+INACTIVITY_THRESHOLD=900000  # 15 minutes
+API_TIMEOUT=15000            # 15 seconds
+
+# 📄 Smart Truncation (characters)
+MAX_CONTENT_LENGTH=30000     # ~500 lines threshold
+TRUNCATE_HEAD=10000          # Keep first 10k chars
+TRUNCATE_TAIL=5000           # Keep last 5k chars
+```
+
+### Ignored Files
+
+Auto-DevLog automatically ignores:
+- `DEVLOG.md` (output file)
+- `.git/` directory
+- `node_modules/`
+- `.env` files
+- Build directories (`dist/`, `build/`, `.next/`)
+- Lock files (`package-lock.json`)
+
+---
+
+## 🏗️ Architecture
+
+```
+src/
+├── extension.js           # Entry point & orchestration
+├── config/
+│   └── index.js           # Environment & settings
+├── services/
+│   ├── backup.js          # Crash recovery system
+│   ├── gemini.js          # AI API integration
+│   ├── logger.js          # DEVLOG.md writer
+│   └── tracker.js         # Session state management
+├── ui/
+│   └── statusBar.js       # Status bar UI manager
+└── utils/
+    ├── fileHelpers.js     # Path & ignore utilities
+    └── truncate.js        # Smart content truncation
+```
+
+### Design Principles
+
+- **🎯 Single Responsibility** - Each module does one thing well
+- **📦 Modular** - Easy to test, maintain, and extend
+- **🛡️ Defensive** - Graceful error handling everywhere
+- **⚡ Efficient** - Minimal resource usage
+
+---
+
+## 🎮 Commands
+
+| Command | Description |
+|---------|-------------|
+| `DevLog: Show Session Stats` | Display current session info |
+| `DevLog: Stop Session & Generate Log` | Force log generation |
+
+---
+
+## 🤔 FAQ
+
+<details>
+<summary><strong>How much does it cost?</strong></summary>
+
+Free! The extension is open source. You only need a free Gemini API key from Google AI Studio.
+</details>
+
+<details>
+<summary><strong>Is my code sent to the cloud?</strong></summary>
+
+Only minimal metadata (filenames, line counts, small previews) is sent to Gemini for summarization. Full file contents are never uploaded.
+</details>
+
+<details>
+<summary><strong>What if VS Code crashes?</strong></summary>
+
+Your session is backed up locally after every capture. On next startup, the extension will restore and remind you about the unsaved session.
+</details>
+
+<details>
+<summary><strong>Can I customize what gets tracked?</strong></summary>
+
+Yes! Modify the `IGNORE_PATTERNS` in `src/utils/fileHelpers.js` to add/remove file types.
+</details>
+
+---
+
+## 🛣️ Roadmap
+
+- [ ] 📱 Mobile view of logs
+- [ ] 🎨 Customizable log templates
+- [ ] 📊 Weekly/monthly summaries
+- [ ] 🔗 Git integration (auto-commit logs)
+- [ ] 🌐 Team sharing capabilities
+- [ ] 🎯 Project-specific configurations
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👨‍💻 Author
+
+**Vrajesh Pandya**
+
+- GitHub: [@VRAJESH-31](https://github.com/VRAJESH-31)
+
+---
+
+<p align="center">
+  <strong>⭐ Star this repo if Auto-DevLog helped you!</strong>
+</p>
+
+<p align="center">
+  <em>"The best documentation is the documentation you don't have to write."</em>
+</p>
