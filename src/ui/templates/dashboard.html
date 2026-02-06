@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevLog Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --success-color: #10b981;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 24px;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .status-badge {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--success-color);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .card-value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .file-list {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .file-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .file-item:last-child {
+            border-bottom: none;
+        }
+
+        .file-name {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+        }
+
+        .file-lines {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        button.secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        button.secondary:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .empty-state {
+            padding: 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Auto-DevLog</h1>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Recording
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card">
+                <div class="card-label">Session Duration</div>
+                <div class="card-value" id="duration">00:00:00</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Files Captured</div>
+                <div class="card-value" id="fileCount">0</div>
+            </div>
+            <div class="card">
+                <div class="card-label">Total Lines</div>
+                <div class="card-value" id="lineCount">0</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Captured Activity</h2>
+        <div class="file-list" id="fileList">
+            <div class="empty-state">Waiting for activity...</div>
+        </div>
+
+        <div class="actions">
+            <!-- <button class="secondary" id="refreshBtn">Refresh Stats</button> -->
+            <button id="stopBtn">Stop & Generate Log</button>
+        </div>
+    </div>
+
+    <script>
+        const vscode = acquireVsCodeApi();
+
+        // Elements
+        const durationEl = document.getElementById('duration');
+        const fileCountEl = document.getElementById('fileCount');
+        const lineCountEl = document.getElementById('lineCount');
+        const fileListEl = document.getElementById('fileList');
+        const stopBtn = document.getElementById('stopBtn');
+
+        // State
+        let files = [];
+
+        // Messages from Extension
+        window.addEventListener('message', event => {
+            const message = event.data;
+            switch (message.command) {
+                case 'updateStats':
+                    updateUI(message.data);
+                    break;
+            }
+        });
+
+        function updateUI(data) {
+            durationEl.textContent = data.duration;
+            fileCountEl.textContent = data.fileCount;
+            lineCountEl.textContent = data.lineCount;
+
+            renderFiles(data.files);
+        }
+
+        function renderFiles(newFiles) {
+            if (newFiles.length === 0) {
+                fileListEl.innerHTML = '<div class="empty-state">Waiting for activity...</div>';
+                return;
+            }
+
+            // Only re-render if changed to avoid flicker, or simple clear/redraw
+            // For simplicity, we'll redraw but in a real app diffing would be better
+            fileListEl.innerHTML = '';
+
+            // Show recent files (limit to last 10)
+            const recentFiles = newFiles.slice().reverse().slice(0, 10);
+
+            recentFiles.forEach(file => {
+                const div = document.createElement('div');
+                div.className = 'file-item';
+                div.innerHTML = `
+                    <span class="file-name">${file.name}</span>
+                    <span class="file-lines">${file.lines} lines</span>
+                `;
+                fileListEl.appendChild(div);
+            });
+        }
+
+        // Actions
+        stopBtn.addEventListener('click', () => {
+            vscode.postMessage({
+                command: 'stopSession'
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -11,6 +11,7 @@ const { restoreBackup, deleteBackup } = require('./services/backup');
 
 // Import UI
 const { StatusBarManager } = require('./ui/statusBar');
+const { DashboardManager } = require('./ui/dashboard');
 
 // Import utils
 const { shouldIgnoreFile, getExtension } = require('./utils/fileHelpers');
@@ -31,6 +32,7 @@ function activate(context) {
     // Initialize tracker and UI
     tracker = new SessionTracker();
     statusBar = new StatusBarManager();
+    const dashboard = new DashboardManager(context.extensionUri, tracker);
     
     // Restore any backed up session
     const backup = restoreBackup();
@@ -44,17 +46,15 @@ function activate(context) {
     // Initialize status bar
     const statusBarItem = statusBar.init('auto-devlog.showStats');
 
-    // Command: Show session statistics
+    // Command: Show session statistics (now opens Dashboard)
     const showStatsCommand = vscode.commands.registerCommand('auto-devlog.showStats', () => {
-        const duration = tracker.getDuration();
-        vscode.window.showInformationMessage(
-            `📊 DevLog | ⏱️ ${duration} | 📝 ${tracker.changes.length} captures | 📁 ${tracker.stats.filesModified.size} files`
-        );
+        dashboard.show();
     });
 
     // Command: Manual stop session
     const stopSessionCommand = vscode.commands.registerCommand('auto-devlog.stopSession', async () => {
         await processLogSession('manual');
+        dashboard.update(); // Update after stop (or close?)
     });
 
     // Real-time change listener with debouncing
@@ -82,6 +82,9 @@ function activate(context) {
                 tracker.changes.length, 
                 tracker.stats.filesModified.size
             );
+
+            // Update dashboard if open
+            dashboard.update();
         }, CONFIG.DEBOUNCE_DELAY);
     });
 
@@ -92,14 +95,16 @@ function activate(context) {
         if (idleTime >= CONFIG.INACTIVITY_THRESHOLD && tracker.hasData() && !isProcessing) {
             console.log('[DevLog] Inactivity detected, auto-committing...');
             await processLogSession('auto');
+            dashboard.update();
         }
     }, CONFIG.INACTIVITY_CHECK_INTERVAL);
 
     // Register disposables
     context.subscriptions.push(statusBarItem, changeListener, showStatsCommand, stopSessionCommand);
     context.subscriptions.push({ dispose: () => clearInterval(inactivityInterval) });
+    context.subscriptions.push(dashboard); // Dispose dashboard on deactivation
     
-    console.log('[DevLog] Extension activated - modular architecture');
+    console.log('[DevLog] Extension activated - modular architecture with Dashboard');
 }
 
 /**
