@@ -20,7 +20,16 @@ async function callGemini(changes) {
         preview: c.contentPreview
     }));
 
-    const userPrompt = `Analyze these code changes and create a developer log entry:\n\n${JSON.stringify(changesSummary, null, 2)}`;
+    const userPrompt = `Here are the recorded file changes from this coding session.
+
+Please analyze the following JSON data and generate the Developer Log:
+
+${JSON.stringify(changesSummary, null, 2)}
+
+Analysis Priorities:
+- Identify the main objective of this session.
+- Connect relationships between modified files (e.g., how a UI change affects the backend).
+- Ignore noise or temporary debugging code.`;
 
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), CONFIG.API_TIMEOUT);
