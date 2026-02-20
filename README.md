@@ -1,316 +1,952 @@
-<p align="center">
-  <img src="https://img.icons8.com/fluency/96/code.png" alt="Auto-DevLog Logo" width="96" height="96"/>
-</p>
+<div align="center">
 
-<h1 align="center">🚀 Auto-DevLog</h1>
+<img src="https://img.shields.io/badge/VS%20Code-Extension-blue?style=for-the-badge&logo=visual-studio-code" alt="VS Code Extension" />
+<img src="https://img.shields.io/badge/AI%20Powered-Gemini-orange?style=for-the-badge&logo=google" alt="Gemini AI" />
+<img src="https://img.shields.io/badge/Version-0.0.1-green?style=for-the-badge" alt="Version" />
+<img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=for-the-badge&logo=node.js" alt="Node.js" />
 
-<p align="center">
-  <strong>The AI-Powered Developer Journal That Writes Itself</strong>
-</p>
+<br/>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/VS%20Code-Extension-blue?logo=visualstudiocode" alt="VS Code Extension"/>
-  <img src="https://img.shields.io/badge/AI-Gemini%202.5%20Flash-orange?logo=google" alt="Gemini AI"/>
-  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License"/>
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Status"/>
-</p>
+[![GitHub](https://img.shields.io/badge/GitHub-vrajesh-181717?style=for-the-badge&logo=github)](https://github.com/VRAJESH-31)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-vrajesh-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/vrajesh-n-pandya-a8ba25266/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-vrajesh.dev-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://vrajesh-31.vercel.app/)
 
-<p align="center">
-  <a href="#-why-auto-devlog">Why?</a> •
-  <a href="#-features">Features</a> •
-  <a href="#-installation">Install</a> •
-  <a href="#-how-it-works">How It Works</a> •
-  <a href="#%EF%B8%8F-configuration">Config</a> •
-  <a href="#-architecture">Architecture</a>
-</p>
+<br/>
+<br/>
+
+# 🤖 Auto-DevLog
+
+### *Your AI-Powered Developer Journal — Zero Effort. Maximum Insight.*
+
+> **Stop wasting time writing dev logs. Let your code speak for itself.**
+
+Auto-DevLog is a VS Code extension that **silently watches your keystrokes**, understands your work in real-time, and uses **Google Gemini AI** to generate beautiful, professional developer logs — completely automatically. No commands, no interruptions, no friction.
+
+<br/>
+
+[**📦 Install Extension**](#-installation) · [**🚀 Quick Start**](#-quick-start) · [**🏗️ Architecture**](#️-system-architecture) · [**🗺️ Roadmap**](#️-roadmap)
+
+<br/>
 
 ---
 
-## 😫 The Problem Every Developer Faces
+</div>
 
-**"What did I even do yesterday?"**
+## 🧩 The Problem Nobody Talks About
 
-Sound familiar? You've spent 8 hours coding, fixed bugs, refactored components, added features... but when it's time to:
+Every developer knows they *should* keep a dev log. Managers want them. Standups need them. Future-you desperately needs them. Yet almost nobody actually does it consistently.
 
-- Write your **standup update**
-- Fill in your **timesheet**
-- Create a **pull request description**
-- Update the **changelog**
+**Why?**
 
-...you're staring at a blank screen, trying to remember what you actually accomplished.
+Because writing a dev log feels like doing *homework after school*. You just finished a 4-hour debugging session — the last thing you want to do is write a paragraph about it. So you skip it. Again. And again.
 
-### The Status Quo is Broken
+```
+Day 1:  "I'll write it tomorrow"
+Day 3:  "I forgot what I even did"
+Day 7:  "What did I build last week again?"
+Sprint Review: "Uh... I fixed some bugs and added a feature?"
+```
 
-| Current Solutions | Why They Fail |
-|------------------|---------------|
-| **Manual logging** | Nobody has time for this |
-| **Git commits** | Too granular, no context |
-| **Time trackers** | Track time, not work |
-| **Note-taking apps** | Requires discipline |
-| **Memory** | 🤣 Good luck |
+This isn't a discipline problem. **It's a tooling problem.**
 
 ---
 
 ## 💡 The Solution: Auto-DevLog
 
-**Auto-DevLog is a VS Code extension that silently watches your coding session and automatically generates intelligent, human-readable development logs using AI.**
+Auto-DevLog eliminates the *act* of writing logs entirely. It runs silently in the background, captures your work as you code, and when you pause — it calls Google Gemini AI to generate a structured, intelligent summary of your session.
 
-You code. It documents. That's it.
+**The result?** A beautiful `DEVLOG.md` in your workspace that tracks everything you've done, *automatically*, written in professional developer language.
 
 ```
-👁️ DevLog Watching     →     ✅ Saved: App.jsx     →     📝 DEVLOG.md Updated
+You code → We watch → AI summarizes → Log written ✅
 ```
 
-### What Makes It Different
-
-| Feature | Auto-DevLog | Others |
-|---------|-------------|--------|
-| **Zero effort** | ✅ Fully automatic | ❌ Manual input required |
-| **AI-powered** | ✅ Gemini 2.5 Flash | ❌ No intelligence |
-| **Context-aware** | ✅ Understands your code | ❌ Generic timestamps |
-| **Crash-proof** | ✅ Local backup system | ❌ Data loss on crash |
-| **Privacy-first** | ✅ Runs locally | ❌ Cloud dependency |
+> **Nothing like this exists as a native VS Code experience.** Time trackers like WakaTime tell you *how long* you coded. Auto-DevLog tells you *what you built and why*.
 
 ---
 
-## ✨ Features
+## ✨ Features at a Glance
 
-### 🕵️ Silent Observer Mode
-- **No commands to run** - Activates automatically when VS Code opens
-- **No buttons to click** - Works in the background while you code
-- **No interruptions** - Never asks for input or confirmation
+| Feature | Description |
+|---|---|
+| 🔍 **Silent Watching** | Monitors all file changes in your workspace with zero interruption |
+| 🧠 **AI Summarization** | Google Gemini Flash analyzes your changes and writes intelligent logs |
+| ⚡ **Auto-Commit** | Automatically logs sessions after inactivity — no manual action needed |
+| 📊 **Live Dashboard** | Beautiful webview showing session stats, files modified, and duration |
+| 🛡️ **Crash Recovery** | Every session is backed up immediately — zero data loss even on crash |
+| 🎯 **Smart Filtering** | Automatically ignores `node_modules`, `.git`, build artifacts, and binaries |
+| 📈 **Status Bar** | Real-time status bar showing current capture state and file count |
+| ✏️ **Manual Control** | Force-generate a log anytime with `DevLog: Stop Session & Generate Log` |
+| 📝 **Markdown Native** | All logs written as structured, timestamped Markdown entries |
+| 📦 **DEVLOG.md** | Single, append-only log file grows with your project over time |
 
-### 🧠 Smart AI Summarization
-- Powered by **Google Gemini 2.5 Flash**
-- Understands code context and purpose
-- Anti-spam filtering for large UI blocks
-- Generates **3-8 concise bullet points**
+---
 
-### ⚡ Real-Time Tracking
-- **3-second debounce** - Captures after you stop typing
-- **15-minute inactivity detection** - Auto-commits when you step away
-- **Smart truncation** - Handles large files efficiently
+## 🎬 How It Works — The Magic Explained
 
-### 🛡️ Crash Protection
-- **Local JSON backup** after every capture
-- **Session restoration** on next startup
-- **Graceful shutdown** saves before VS Code closes
-- **Never lose your work** - Even if VS Code crashes
+```
+┌─────────────────────────────────────────────────────────┐
+│                   YOU ARE CODING                        │
+│         (editing files, nothing special required)       │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+                      ▼  onDidChangeTextDocument
+┌─────────────────────────────────────────────────────────┐
+│              DEBOUNCE ENGINE (500ms)                    │
+│   Waits for typing pause before processing change       │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│              SESSION TRACKER                            │
+│  • Captures file name, ext, lines, content preview      │
+│  • Smart truncation to manage token budget              │
+│  • Immediate backup write for crash protection          │
+│  • Updates stats: saveCount, filesModified, timestamp   │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+                      ▼
+              ┌───────────────┐
+              │  Still Active │──── YES ──► Wait & Watch
+              └───────┬───────┘
+                      │ NO (Inactivity threshold met)
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│              GEMINI AI CALL                             │
+│  • Sends structured change data as JSON context         │
+│  • AI understands file relationships and session goal   │
+│  • Returns professional Markdown dev log entry          │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│               LOGGER SERVICE                            │
+│  • Appends timestamped entry to DEVLOG.md               │
+│  • Includes session stats header (captures, files)      │
+│  • Clears backup after successful write                 │
+│  • Resets tracker for next session                      │
+└─────────────────────────────────────────────────────────┘
+```
 
-### 📊 Beautiful Output
+---
+
+## 🏗️ System Architecture
+
+Auto-DevLog follows a **modular, service-oriented architecture** — built deliberately to study system design patterns: separation of concerns, event-driven pipelines, crash-safe state management, and clean service boundaries.
+
+### 📁 Project Structure
+
+```
+auto-devlog/
+├── src/
+│   ├── extension.js          # 🎯 Entry point — VS Code lifecycle, event wiring
+│   │
+│   ├── config/
+│   │   └── index.js          # ⚙️  Central config — loads .env, exports defaults
+│   │
+│   ├── services/             # 🧠 Core business logic (no VS Code coupling)
+│   │   ├── tracker.js        # 📡 Session state machine — captures & stats
+│   │   ├── gemini.js         # 🤖 AI bridge — prompt engineering + API call
+│   │   ├── logger.js         # 📝 Log writer — append-only DEVLOG.md
+│   │   └── backup.js         # 🛡️  Crash guard — synchronous persist/restore
+│   │
+│   ├── ui/                   # 🎨 Presentation layer (VS Code webview)
+│   │   ├── statusBar.js      # 📊 Real-time state indicator in status bar
+│   │   ├── dashboard.js      # 🖥️  Webview controller & message bridge
+│   │   └── templates/
+│   │       └── dashboard.html # HTML/CSS/JS — self-contained webview panel
+│   │
+│   └── utils/                # 🔧 Pure helpers (stateless, reusable)
+│       ├── fileHelpers.js    # Ignore lists, extension detection, icon map
+│       └── truncate.js       # Smart token-budget truncation
+│
+├── .env                      # 🔑 Runtime secrets & tunables
+├── package.json              # 📦 VS Code extension manifest
+└── DEVLOG.md                 # 🗒️  Generated developer journal (append-only)
+```
+
+### 🔗 Component Dependency Map
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║                      extension.js                          ║
+║          (VS Code API adapter — the only place             ║
+║           that imports from 'vscode' directly)             ║
+╚═══════════╤══════════╤══════════╤═══════════╤══════════════╝
+            │          │          │           │
+            ▼          ▼          ▼           ▼
+       ┌─────────┐ ┌────────┐ ┌───────┐ ┌────────┐
+       │ config  │ │tracker │ │gemini │ │ logger │
+       │ /index  │ │  .js   │ │  .js  │ │  .js   │
+       └────┬────┘ └───┬────┘ └───────┘ └────────┘
+            │           │
+            ▼           ▼
+       ┌─────────┐ ┌──────────┐ ┌──────────┐
+       │  .env   │ │  backup  │ │truncate  │
+       │ secrets │ │   .js    │ │fileHelper│
+       └─────────┘ └──────────┘ └──────────┘
+
+       ┌─────────────────────────────────────┐
+       │         UI Layer (Webview)          │
+       │  statusBar.js  →  dashboard.js      │
+       │                   → dashboard.html  │
+       └─────────────────────────────────────┘
+```
+
+> **Design Decision**: `extension.js` is the *only* module that imports from `vscode`. All services are plain Node.js — this makes them independently testable and portable to other editors.
+
+---
+
+## 🔄 Event Flow & Lifecycle
+
+### Full Session Lifecycle
+
+```mermaid
+sequenceDiagram
+    participant Dev as 👨‍💻 Developer
+    participant VSC as VS Code API
+    participant Ext as extension.js
+    participant Trk as SessionTracker
+    participant Bk  as BackupService
+    participant AI  as Gemini API
+    participant Log as Logger
+
+    Dev->>VSC: Opens workspace (F5 or normal)
+    VSC->>Ext: activate(context)
+    Ext->>Trk: new SessionTracker()
+    Ext->>Bk: restoreBackup()
+    Bk-->>Ext: previousSession (if crashed)
+    Ext->>Trk: restore(previousSession)
+
+    loop Coding Session
+        Dev->>VSC: Types code in editor
+        VSC->>Ext: onDidChangeTextDocument
+        Ext->>Ext: debounce(500ms)
+        Ext->>Trk: capture(document)
+        Trk->>Bk: saveBackup() immediately
+        Trk-->>Ext: { baseName, ext, lines }
+        Ext->>StatusBar: setCaptured(...)
+    end
+
+    note over Ext: Inactivity watchdog triggers
+    Ext->>AI: callGemini(changes)
+    AI-->>Ext: markdown summary
+    Ext->>Log: writeLog(summary, stats)
+    Log->>Log: Append entry to DEVLOG.md
+    Ext->>Bk: deleteBackup()
+    Ext->>Trk: reset()
+
+    Dev->>VSC: Closes VS Code
+    VSC->>Ext: deactivate()
+    Ext->>AI: Final callGemini (shutdown mode)
+    Ext->>Log: writeLog (silent)
+```
+
+### Trigger Sources
+
+The extension generates logs from three different triggers:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   LOG GENERATION TRIGGERS                   │
+├─────────────────┬───────────────────┬───────────────────────┤
+│  🕐 AUTO        │  ✋ MANUAL        │  🔴 SHUTDOWN          │
+├─────────────────┼───────────────────┼───────────────────────┤
+│ Inactivity >    │ User runs command │ VS Code window        │
+│ threshold (5m   │ "DevLog: Stop     │ closes / crashes      │
+│ default)        │ Session & Gen..."  │                       │
+├─────────────────┼───────────────────┼───────────────────────┤
+│ Shows progress  │ Shows progress    │ Silent save mode      │
+│ notification    │ notification      │ (no UI available)     │
+├─────────────────┼───────────────────┼───────────────────────┤
+│ "Inactivity     │ "Entry created    │ Backup already        │
+│ detected.       │ successfully!"    │ preserved as          │
+│ Session logged!"│                   │ fallback              │
+└─────────────────┴───────────────────┴───────────────────────┘
+```
+
+---
+
+## 🔁 Extension State Machine
+
+At runtime, the extension behaves as a finite state machine — every user action or timer event transitions it from one state to another.
+
+```
+                     ┌─────────────────┐
+    VS Code starts   │                 │
+   ──────────────►   │    IDLE         │  ◄─── Session reset / log written
+                     │  👁 Watching    │
+                     └────────┬────────┘
+                              │ onDidChangeTextDocument fires
+                              ▼
+                     ┌─────────────────┐
+                     │                 │
+                     │   TYPING        │  (debounce timer running)
+                     │  ⌨️ Buffering   │
+                     └────────┬────────┘
+                              │ 500ms silence (debounce fires)
+                              ▼
+                     ┌─────────────────┐
+                     │                 │──── repeat for each change ──►┐
+                     │   CAPTURED      │                               │
+                     │  📁 Logged file │ ◄─────────────────────────────┘
+                     └────────┬────────┘
+                              │ Inactivity threshold exceeded
+                              │ OR manual command triggered
+                              │ OR VS Code closing
+                              ▼
+                     ┌─────────────────┐
+                     │                 │
+                     │   PROCESSING    │  (Gemini API call in-flight)
+                     │  ⏳ Generating  │
+                     └────────┬────────┘
+                              │ API responds with markdown
+                              ▼
+                     ┌─────────────────┐
+                     │                 │──── Appends to DEVLOG.md
+                     │   LOGGED        │──── Deletes backup.json
+                     │  ✅ Entry saved │──── Resets tracker
+                     └────────┬────────┘
+                              │
+                              └───────────────► back to IDLE
+```
+
+| State | Trigger In | Status Bar Shows |
+|---|---|---|
+| **IDLE** | Session reset / startup | `$(eye) DevLog Watching` |
+| **TYPING** | `onDidChangeTextDocument` | `$(pencil) DevLog Typing...` |
+| **CAPTURED** | Debounce fires | `$(file-code) filename.js [N files]` |
+| **PROCESSING** | Inactivity / manual / shutdown | `$(sync~spin) DevLog Processing` |
+| **LOGGED** | Gemini responds | Notification shown → reset to IDLE |
+
+---
+
+## 🔀 Data Transformation Pipeline
+
+Every keystroke goes through a series of transformations before becoming a formatted log entry. This pipeline shows exactly how raw file content becomes a polished developer log:
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 1 — RAW INPUT                                               │
+│                                                                    │
+│  { document.getText(), document.uri, document.lineCount }          │
+│  (VS Code TextDocument object — every character you typed)         │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  shouldIgnoreFile() filter
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 2 — FILTER & GATE                                           │
+│                                                                    │
+│  ✗ Drop if: node_modules / .git / binary / backup.json            │
+│  ✓ Pass if: source file with text content                          │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  smartTruncate()
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 3 — TRUNCATION (Token Budget)                               │
+│                                                                    │
+│  Full file content  →  first MAX_CONTENT_LENGTH chars              │
+│  Appends "... [truncated]" marker if cut                           │
+│  Ensures Gemini stays within token limits                          │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  tracker.capture()
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 4 — STRUCTURED CAPTURE                                      │
+│                                                                    │
+│  {                                                                 │
+│    file: "tracker.js",           ← getBaseName()                   │
+│    type: ".js",                  ← getExtension()                  │
+│    lines: 110,                   ← document.lineCount              │
+│    timestamp: "2026-02-21T...",  ← new Date().toISOString()        │
+│    truncated: false,             ← wasTruncated()                  │
+│    preview: "class SessionTra…"  ← truncated content               │
+│  }                                                                 │
+│                                                                    │
+│  → Pushed to changes[] array                                       │
+│  → saveBackup() called synchronously                               │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  callGemini(changes)
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 5 — AI PROMPT CONSTRUCTION                                  │
+│                                                                    │
+│  changes[] array serialized as JSON context                        │
+│  Wrapped in engineered system prompt:                              │
+│    • Role: "senior developer writing a dev log"                    │
+│    • Format: conventional commits, categorized output              │
+│    • Instruction: connect file relationships, ignore noise         │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  Gemini Flash API (HTTPS POST)
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 6 — AI RESPONSE                                             │
+│                                                                    │
+│  Raw markdown string from Gemini:                                  │
+│  "### 🎯 Session Objective\n feat(backup): added crash recovery…"  │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  writeLog(summary, stats)
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 7 — LOG ENTRY ASSEMBLY                                      │
+│                                                                    │
+│  ## 📝 Log: Saturday, February 21, 2026 at 12:29 AM               │
+│  **Session Stats:** 12 captures across 4 files                     │
+│  {AI markdown content}                                             │
+│  *Generated by Auto-DevLog*                                        │
+└───────────────────────────┬────────────────────────────────────────┘
+                            │  fs.appendFileSync()
+                            ▼
+┌────────────────────────────────────────────────────────────────────┐
+│  STAGE 8 — DEVLOG.md (final output)                                │
+│                                                                    │
+│  Append-only. One entry per session. Grows forever.                │
+│  Human-readable. Git-diffable. Zero manual effort.                 │
+└────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🧠 AI Summarization — How It Thinks
+
+The Gemini prompt is engineered to produce structured, professional dev logs — not vague summaries.
+
+### What Gets Sent to Gemini
+
+```javascript
+// Each captured change is sent as structured JSON
+{
+  "file": "tracker.js",
+  "type": ".js",
+  "lines": 110,
+  "timestamp": "2026-02-21T00:09:16.000Z",
+  "truncated": false,
+  "preview": "class SessionTracker { constructor() { this.reset(); }..."
+}
+```
+
+### System Prompt Philosophy
+
+The AI is instructed to:
+- **Identify the main objective** of the session
+- **Connect relationships** between files (e.g., API change → UI update)
+- **Use conventional commit prefixes** (`feat:`, `fix:`, `refactor:`)
+- **Categorize changes** into Features, Bug Fixes, Refactoring
+- **Ignore noise** — temporary debug lines, whitespace, indentation changes
+- **Be technical but readable** — like a senior dev wrote it
+
+### Sample Generated Log Output
+
 ```markdown
-## 📝 Log: Tuesday, January 28, 2026 at 2:25 AM
+---
 
-**Session Stats:** 12 captures across 5 files
+## 📝 Log: Saturday, February 21, 2026 at 12:09 AM
 
-- Implemented user authentication flow with JWT token validation
-- Refactored Dashboard component for better performance
-- Fixed critical bug in payment processing module
-- Added error handling for API timeout scenarios
+**Session Stats:** 14 captures across 4 files
+
+### 🎯 Session Objective
+Refactored the session management layer and added crash-recovery
+backup system to ensure zero data loss across VS Code restarts.
+
+### ✨ Features Added
+- **feat(tracker):** Introduced `SessionTracker` class to encapsulate
+  session state — changes array, stats, and activity timestamps.
+- **feat(backup):** Implemented automatic backup-on-capture pattern;
+  every file change is persisted immediately to prevent data loss.
+
+### 🔧 Refactoring
+- **refactor(extension):** Extracted service initialization into
+  dedicated modules (`tracker.js`, `backup.js`) for cleaner separation
+  of concerns and easier unit testing.
+
+### 📁 Files Modified
+| File | Lines | Changes |
+|------|-------|---------|
+| `tracker.js` | 110 | Core session management class |
+| `backup.js` | 85 | Crash recovery system |
+| `extension.js` | 200 | Wired new services into lifecycle |
+| `config/index.js` | 90 | Added backup config constants |
 
 *Generated by Auto-DevLog*
 ```
 
 ---
 
-## 📦 Installation
+## 🛡️ Crash Recovery System
 
-### From Source (Development)
+One of Auto-DevLog's most important features is its **zero-data-loss guarantee**.
+
+```
+File Changed → Tracker.capture() → saveBackup() ← immediate!
+                                         │
+                                   backup.json
+                                   (workspace root)
+
+Next VS Code launch:
+   activate() → restoreBackup() → session restored before you type a word
+```
+
+The backup file is written **synchronously on every capture**, meaning even if VS Code crashes mid-session, your entire work history is preserved and automatically restored on next launch.
+
+---
+
+## ⚙️ Configuration Reference
+
+All tunables live in your `.env` file in the project root.
 
 ```bash
-# Clone the repository
-git clone https://github.com/VRAJESH-31/dev-log-vs-code_extention.git
+# .env — Auto-DevLog Configuration
 
-# Navigate to directory
-cd dev-log-vs-code_extention
+# ─────────────────────────────────────────
+# REQUIRED: Your Google Gemini API Key
+# Get yours at: https://aistudio.google.com/apikey
+# ─────────────────────────────────────────
+GEMINI_API_KEY=your_api_key_here
 
-# Install dependencies
+# ─────────────────────────────────────────
+# TIMING & PERFORMANCE
+# ─────────────────────────────────────────
+
+# How long to wait after last keystroke before capturing (ms)
+# Lower = more captures, higher = more batching
+DEBOUNCE_DELAY=500
+
+# How long of inactivity before auto-logging (ms)
+# Default: 5 minutes (300000)
+INACTIVITY_THRESHOLD=300000
+
+# How often to check for inactivity (ms)
+# Default: 30 seconds
+INACTIVITY_CHECK_INTERVAL=30000
+
+# Gemini API request timeout (ms)
+API_TIMEOUT=30000
+
+# ─────────────────────────────────────────
+# CONTENT & OUTPUT
+# ─────────────────────────────────────────
+
+# Max characters of file content to send to AI (token budget)
+MAX_CONTENT_LENGTH=10000
+
+# Output log filename (relative to workspace root)
+LOG_FILENAME=DEVLOG.md
+```
+
+### Configuration Defaults
+
+| Variable | Default | Description |
+|---|---|---|
+| `DEBOUNCE_DELAY` | `500ms` | Keystroke buffer wait time |
+| `INACTIVITY_THRESHOLD` | `300000ms` | 5 minutes of silence = auto-log |
+| `INACTIVITY_CHECK_INTERVAL` | `30000ms` | Check every 30 seconds |
+| `API_TIMEOUT` | `30000ms` | Gemini request timeout |
+| `MAX_CONTENT_LENGTH` | `10000 chars` | Token budget per session |
+| `LOG_FILENAME` | `DEVLOG.md` | Output file name |
+
+---
+
+## 📦 Installation
+
+### Option 1: From Source (Development)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/auto-devlog.git
+cd auto-devlog
+
+# 2. Install dependencies
 npm install
 
-# Create your .env file
+# 3. Configure your API key
+cp .env.example .env
+# Edit .env and add your GEMINI_API_KEY
+
+# 4. Open in VS Code
+code .
+
+# 5. Press F5 to launch Extension Development Host
+```
+
+### Option 2: Package & Install (VSIX)
+
+```bash
+# Install the VSIX packaging tool
+npm install -g @vscode/vsce
+
+# Package the extension
+vsce package
+
+# Install in VS Code
+code --install-extension auto-devlog-0.0.1.vsix
+```
+
+### Prerequisites
+
+| Requirement | Version |
+|---|---|
+| VS Code | `^1.104.0` |
+| Node.js | `18.x` or higher |
+| Google Gemini API Key | Free tier sufficient |
+
+---
+
+## 🚀 Quick Start
+
+### Step 1 — Get Your API Key
+
+1. Visit [Google AI Studio](https://aistudio.google.com/apikey)
+2. Create a new API key (free)
+3. Copy the key
+
+### Step 2 — Configure
+
+```bash
+# Create .env from example
 cp .env.example .env
 
-# Add your Gemini API key to .env
-# Get key from: https://aistudio.google.com/app/apikey
+# Open .env and replace placeholder
+GEMINI_API_KEY=AIzaSy...your_actual_key_here
 ```
 
-### Run the Extension
+### Step 3 — Launch
 
-1. Open the project in VS Code
-2. Press **F5** to launch Extension Development Host
-3. Start coding in the new window
-4. Watch the magic happen! 🎉
+Press **F5** in VS Code to launch the Extension Development Host.
 
----
-
-## 🔧 How It Works
-
+You'll see in the status bar:
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     AUTO-DEVLOG WORKFLOW                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│   1️⃣ DETECT          2️⃣ CAPTURE         3️⃣ SUMMARIZE           │
-│   ─────────          ─────────          ───────────            │
-│   Listen for    →    Debounce 3s   →    Call Gemini AI         │
-│   file changes       Save backup        Generate summary       │
-│                                                                 │
-│   4️⃣ WRITE           5️⃣ RESET           6️⃣ REPEAT             │
-│   ─────────          ─────────          ─────────              │
-│   Append to     →    Clear session  →   Continue               │
-│   DEVLOG.md          Delete backup      watching               │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+$(eye) DevLog Watching
 ```
 
-### Trigger Conditions
+### Step 4 — Code Normally
 
-| Trigger | When | Action |
-|---------|------|--------|
-| **Inactivity** | 15 minutes idle | Auto-generates log |
-| **Manual** | Command: `DevLog: Stop Session` | Immediate generation |
-| **Shutdown** | VS Code closes | Saves before exit |
-
----
-
-## ⚙️ Configuration
-
-All settings are managed via the `.env` file:
-
-```env
-# 🔑 API Configuration
-GEMINI_API_KEY=your_api_key_here
-GEMINI_MODEL=gemini-2.5-flash
-
-# ⏱️ Timing (milliseconds)
-DEBOUNCE_DELAY=3000          # Wait after typing stops
-INACTIVITY_THRESHOLD=900000  # 15 minutes
-API_TIMEOUT=15000            # 15 seconds
-
-# 📄 Smart Truncation (characters)
-MAX_CONTENT_LENGTH=30000     # ~500 lines threshold
-TRUNCATE_HEAD=10000          # Keep first 10k chars
-TRUNCATE_TAIL=5000           # Keep last 5k chars
-```
-
-### Ignored Files
-
-Auto-DevLog automatically ignores:
-- `DEVLOG.md` (output file)
-- `.git/` directory
-- `node_modules/`
-- `.env` files
-- Build directories (`dist/`, `build/`, `.next/`)
-- Lock files (`package-lock.json`)
-
----
-
-## 🏗️ Architecture
+Just write code. The extension watches silently. After a pause in coding, you'll see a progress notification:
 
 ```
-src/
-├── extension.js           # Entry point & orchestration
-├── config/
-│   └── index.js           # Environment & settings
-├── services/
-│   ├── backup.js          # Crash recovery system
-│   ├── gemini.js          # AI API integration
-│   ├── logger.js          # DEVLOG.md writer
-│   └── tracker.js         # Session state management
-├── ui/
-│   └── statusBar.js       # Status bar UI manager
-└── utils/
-    ├── fileHelpers.js     # Path & ignore utilities
-    └── truncate.js        # Smart content truncation
+DevLog: Inactivity detected. Generating log...  [████████░░] 70%
 ```
 
-### Design Principles
+### Step 5 — Check Your Log
 
-- **🎯 Single Responsibility** - Each module does one thing well
-- **📦 Modular** - Easy to test, maintain, and extend
-- **🛡️ Defensive** - Graceful error handling everywhere
-- **⚡ Efficient** - Minimal resource usage
+Open `DEVLOG.md` in your workspace. A new entry has been automatically appended. 🎉
 
 ---
 
 ## 🎮 Commands
 
+Access via **Command Palette** (`Ctrl+Shift+P`):
+
 | Command | Description |
-|---------|-------------|
-| `DevLog: Show Session Stats` | Display current session info |
-| `DevLog: Stop Session & Generate Log` | Force log generation |
+|---|---|
+| `DevLog: Show Session Stats` | Opens the live webview dashboard panel |
+| `DevLog: Stop Session & Generate Log` | Manually triggers AI summarization now |
+
+### Status Bar States
+
+```
+$(eye) DevLog Watching           ← Idle, monitoring for changes
+$(pencil) DevLog Typing...       ← Debounce active, you're typing
+$(file-code) main.js [3 files]   ← File captured, showing last modified
+$(sync~spin) DevLog Processing   ← Calling Gemini API
+```
 
 ---
 
-## 🤔 FAQ
+## 📊 The Dashboard
 
-<details>
-<summary><strong>How much does it cost?</strong></summary>
+Click the status bar item or run `DevLog: Show Session Stats` to open the live dashboard.
 
-Free! The extension is open source. You only need a free Gemini API key from Google AI Studio.
-</details>
-
-<details>
-<summary><strong>Is my code sent to the cloud?</strong></summary>
-
-Only minimal metadata (filenames, line counts, small previews) is sent to Gemini for summarization. Full file contents are never uploaded.
-</details>
-
-<details>
-<summary><strong>What if VS Code crashes?</strong></summary>
-
-Your session is backed up locally after every capture. On next startup, the extension will restore and remind you about the unsaved session.
-</details>
-
-<details>
-<summary><strong>Can I customize what gets tracked?</strong></summary>
-
-Yes! Modify the `IGNORE_PATTERNS` in `src/utils/fileHelpers.js` to add/remove file types.
-</details>
+```
+┌────────────────────────────────────────────────────────────────┐
+│  🤖 DevLog Dashboard                              [⟳ Refresh] │
+├──────────────┬─────────────────┬───────────────────────────────┤
+│  Session     │   Files         │   Captures                    │
+│  Duration    │   Modified      │   This Session                │
+│  ── 42m ──  │   ─── 7 ────   │   ────── 24 ───────           │
+├──────────────┴─────────────────┴───────────────────────────────┤
+│  📁 Files Captured                                             │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │  📄 extension.js        ·  200 lines  ·  6 captures     │ │
+│  │  📄 tracker.js          ·  110 lines  ·  4 captures     │ │
+│  │  📄 gemini.js           ·   77 lines  ·  3 captures     │ │
+│  │  📄 dashboard.html      ·  307 lines  ·  7 captures     │ │
+│  │  📄 statusBar.js        ·  129 lines  ·  2 captures     │ │
+│  └──────────────────────────────────────────────────────────┘ │
+│                                                                │
+│           [🛑 Stop & Generate Log Now]                        │
+└────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🛣️ Roadmap
+## 🗂️ Smart File Filtering
 
-- [ ] 📱 Mobile view of logs
-- [ ] 🎨 Customizable log templates
-- [ ] 📊 Weekly/monthly summaries
-- [ ] 🔗 Git integration (auto-commit logs)
-- [ ] 🌐 Team sharing capabilities
-- [ ] 🎯 Project-specific configurations
+Auto-DevLog is intelligent about what it logs. It automatically ignores:
+
+```javascript
+// Ignored patterns (never logged)
+const IGNORED_EXTENSIONS = [
+  '.png', '.jpg', '.gif', '.svg', '.ico',  // Images
+  '.ttf', '.woff', '.woff2', '.eot',       // Fonts
+  '.mp4', '.mp3', '.wav',                  // Media
+  '.zip', '.tar', '.gz',                   // Archives
+  '.vsix', '.exe', '.dll',                 // Binaries
+  '.d.ts',                                 // Type declarations
+];
+
+const IGNORED_PATHS = [
+  'node_modules', '.git', 'dist', 'build',  // Build artifacts
+  '.vscode', 'coverage', '__pycache__',     // Tooling dirs
+  'backup.json',                            // Our own backup file
+];
+```
+
+---
+
+## 🔬 Technical Deep-Dive
+
+### Debounce Architecture
+
+The change listener uses a timer-cancel pattern to batch rapid keystrokes:
+
+```
+Keystrokes:  A  B  C  D  [pause 500ms]  E  F  [pause 500ms]
+Captures:   ─────────────────────────────►◉────────────────►◉
+                   (only 2 captures, not 6!)
+```
+
+This prevents API flooding and groups logically related changes.
+
+### Smart Truncation
+
+Large files are truncated intelligently before sending to Gemini to respect token limits:
+
+```javascript
+// Keeps content within token budget
+// Prioritizes: file header + first N% of content
+// Marks truncated sections clearly for AI context
+function smartTruncate(content, maxLength = CONFIG.MAX_CONTENT_LENGTH) {
+  if (content.length <= maxLength) return content;
+  return content.substring(0, maxLength) + '\n... [truncated]';
+}
+```
+
+### Graceful Shutdown
+
+When VS Code closes, the extension enters **shutdown mode** — it bypasses all UI, calls Gemini silently, writes the log, and exits cleanly:
+
+```javascript
+async function deactivate() {
+  isShuttingDown = true;           // 1. Signal shutdown mode
+  clearTimeout(typingTimer);       // 2. Cancel pending timers
+  clearInterval(inactivityInterval);
+  
+  if (tracker?.hasData()) {
+    await processLogSession('shutdown');  // 3. Silent final save
+  }
+  
+  statusBar?.dispose();            // 4. Clean up VS Code resources
+}
+```
+
+---
+
+## 🆚 How We Compare
+
+| Feature | Auto-DevLog | WakaTime | CodeTime | Manual Diary |
+|---|:---:|:---:|:---:|:---:|
+| **Zero configuration** | ✅ | ✅ | ✅ | ✅ |
+| **AI-Generated summaries** | ✅ | ❌ | ❌ | ❌ |
+| **What you built, not just time** | ✅ | ❌ | ❌ | ✅ |
+| **Fully offline / local** | ✅ | ❌ | ❌ | ✅ |
+| **No account required** | ✅ | ❌ | ❌ | ✅ |
+| **Markdown output** | ✅ | ❌ | ❌ | 🔶 |
+| **Crash recovery** | ✅ | — | — | ❌ |
+| **Open source** | ✅ | ❌ | ✅ | ✅ |
+| **Free forever (self-host)** | ✅ | 🔶 | 🔶 | ✅ |
+
+> **The key differentiator**: WakaTime and CodeTime tell you *how many hours* you coded. Auto-DevLog tells you *what you built, what you fixed, and why* — in the language of a senior developer.
+
+---
+
+## 📁 Output Format
+
+Auto-DevLog creates and maintains a single `DEVLOG.md` file. Here's what it looks like after a few sessions:
+
+```markdown
+# Developer Log
+
+Automated development journal powered by Auto-DevLog.
+
+---
+
+## 📝 Log: Friday, February 20, 2026 at 11:45 PM
+
+**Session Stats:** 8 captures across 3 files
+
+### 🎯 Session Objective
+Added crash recovery backup system and integrated it with the 
+session tracker for zero-data-loss guarantee.
+
+### ✨ Features Added
+- **feat(backup):** New `BackupService` with saveBackup/restoreBackup/deleteBackup
+- **feat(tracker):** SessionTracker now calls saveBackup() on every capture
+
+### 📁 Files Modified
+| File | Lines |
+|------|-------|
+| `backup.js` | 85 |
+| `tracker.js` | 110 |
+| `extension.js` | 180 |
+
+*Generated by Auto-DevLog*
+
+---
+
+## 📝 Log: Saturday, February 21, 2026 at 12:09 AM
+
+**Session Stats:** 5 captures across 2 files
+
+### 🎯 Session Objective  
+Dashboard webview implementation — live session stats panel.
+
+### ✨ Features Added
+- **feat(ui):** DashboardManager webview with real-time stats
+- **feat(ui):** HTML template with responsive layout and dark theme
+
+*Generated by Auto-DevLog*
+```
+
+---
+
+## 🗺️ Roadmap
+
+**v1.0 — shipped ✅**
+
+| Done | Feature |
+|:---:|---|
+| ✅ | Real-time file change monitoring |
+| ✅ | Debounced capture engine |
+| ✅ | Gemini AI summarization |
+| ✅ | Auto-log on inactivity + manual trigger |
+| ✅ | Crash recovery backup system |
+| ✅ | Live session dashboard (webview) |
+| ✅ | Smart file filtering |
+| ✅ | Status bar + graceful shutdown save |
+
+**Coming up:**
+
+- `v1.1` — Custom output templates, per-project config, dashboard export
+- `v1.2` — Unit test coverage, retry backoff, incremental scanning
+- `v1.3` — Multi-model AI (OpenAI, Claude, Ollama)
+- `v2.0` — Team collaboration, natural language queries, mobile companion
+
+---
+
+## 🔐 Security & Privacy
+
+Auto-DevLog is designed privacy-first:
+
+- **API Key is local**: Your Gemini key lives only in your `.env` file — never transmitted anywhere except directly to Google's API
+- **No telemetry**: Zero usage tracking, analytics, or phone-home behavior
+- **Source is open**: Every line of this extension runs on your machine and you can inspect exactly what it does
+- **Content truncation**: Only the first `MAX_CONTENT_LENGTH` characters of each file are sent to Gemini — never your full secrets or codebase
+- **`.env` ignored**: The `.gitignore` ships with `.env` excluded from version control
+
+> **Your code never leaves your machine except the minimal preview content sent to Gemini for summarization.** If you work on sensitive code, set `MAX_CONTENT_LENGTH=0` to send only file metadata (name, lines, timestamp) to the AI.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to:
+Contributions are welcome! Here's how to get started:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Setup
+
+```bash
+# Fork and clone
+git clone https://github.com/YOUR_USERNAME/auto-devlog.git
+cd auto-devlog
+npm install
+cp .env.example .env
+# Add your GEMINI_API_KEY to .env
+code .
+# Press F5 to test your changes live
+```
+
+### Development Workflow
+
+```bash
+# Lint your code
+npm run lint
+
+# Run tests
+npm test
+
+# Package for distribution
+npx @vscode/vsce package
+```
+
+### Project Conventions
+
+- **Commits**: Use conventional commit format (`feat:`, `fix:`, `refactor:`, `docs:`)
+- **Modules**: Keep services single-responsibility — one file, one job
+- **Errors**: Always log errors with `[DevLog Error]` prefix, never swallow silently
+- **Config**: Any new configurable value belongs in `config/index.js` with a `.env` default
+
+### Areas That Need Help
+
+- [ ] Unit test suite for services (tracker, gemini, logger, backup)
+- [ ] GitHub Actions CI/CD pipeline
+- [ ] Additional AI prompt templates for different project types
+- [ ] JetBrains Fleet plugin port
+- [ ] Dashboard mobile responsiveness improvements
 
 ---
 
-## 📄 License
+## 🐛 Troubleshooting
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Extension not activating on F5?
+
+1. Ensure `package.json` has correct `"main": "./src/extension.js"`
+2. Check the **Debug Console** (`Ctrl+Shift+Y`) for error messages
+3. Look at **Output → Log (Extension Host)** for runtime errors
+4. Verify Node.js version: `node --version` (needs 18+)
+
+### AI not generating logs?
+
+```bash
+# Verify your API key is set
+cat .env | grep GEMINI_API_KEY
+
+# Test the key directly
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=YOUR_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{"contents":[{"parts":[{"text":"Hello"}]}]}'
+```
+
+### Log entries look wrong?
+
+- Increase `DEBOUNCE_DELAY` if captures seem too fragmented
+- Decrease `INACTIVITY_THRESHOLD` to log more frequently
+- Check `DEVLOG.md` is in your workspace root (not in `src/`)
+
+### Backup file growing too large?
+
+The `backup.json` file is automatically deleted after each successful log. If it persists, check the Extension Host logs for Gemini API errors.
 
 ---
 
-## 👨‍💻 Author
+<div align="center">
 
-**Vrajesh Pandya**
+**Built by [Vraj](https://vrajesh-31.vercel.app/) — to learn system design, architecture, and real-world workflows.**
 
-- GitHub: [@VRAJESH-31](https://github.com/VRAJESH-31)
+*Because your code tells a story. Now it writes it too.*
 
----
+<br/>
 
-<p align="center">
-  <strong>⭐ Star this repo if Auto-DevLog helped you!</strong>
-</p>
+[![GitHub](https://img.shields.io/badge/GitHub-vrajesh-181717?style=for-the-badge&logo=github)](https://github.com/VRAJESH-31)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-vrajesh-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/vrajesh-n-pandya-a8ba25266/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-vrajesh.dev-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://vrajesh-31.vercel.app/)
 
-<p align="center">
-  <em>"The best documentation is the documentation you don't have to write."</em>
-</p>
+</div>
